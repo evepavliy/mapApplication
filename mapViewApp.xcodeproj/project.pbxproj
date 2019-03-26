@@ -14,6 +14,7 @@
 		C7209587224ACF4200A5A2FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7209585224ACF4200A5A2FC /* LaunchScreen.storyboard */; };
 		C7209592224ACF4200A5A2FC /* mapViewAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7209591224ACF4200A5A2FC /* mapViewAppTests.swift */; };
 		C720959D224ACF4200A5A2FC /* mapViewAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C720959C224ACF4200A5A2FC /* mapViewAppUITests.swift */; };
+		C72095AC224AD4B800A5A2FC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72095AB224AD4B800A5A2FC /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		C7209598224ACF4200A5A2FC /* mapViewAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mapViewAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C720959C224ACF4200A5A2FC /* mapViewAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewAppUITests.swift; sourceTree = "<group>"; };
 		C720959E224ACF4200A5A2FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C72095AB224AD4B800A5A2FC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C72095AC224AD4B800A5A2FC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +84,7 @@
 				C7209590224ACF4200A5A2FC /* mapViewAppTests */,
 				C720959B224ACF4200A5A2FC /* mapViewAppUITests */,
 				C720957A224ACF3D00A5A2FC /* Products */,
+				C72095AA224AD4B800A5A2FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +127,14 @@
 				C720959E224ACF4200A5A2FC /* Info.plist */,
 			);
 			path = mapViewAppUITests;
+			sourceTree = "<group>";
+		};
+		C72095AA224AD4B800A5A2FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C72095AB224AD4B800A5A2FC /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
