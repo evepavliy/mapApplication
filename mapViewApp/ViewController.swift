@@ -9,13 +9,14 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
-    var lattitude = 50.62754
-    var longitude = 30.4431
+    var lattitude = 50.7388
+    var longitude = 25.32249999999999
     
+    var manager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,17 @@ class ViewController: UIViewController {
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lattitude, longitude: longitude), span: span)
         
         mapView.setRegion(region, animated: true)
+        
+        // setting-up a pin
+        let pinLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: lattitude, longitude: longitude)
+        
+        let pinObject = MKPointAnnotation()
+        
+        pinObject.coordinate = pinLocation
+        pinObject.title = "Lubart's Castle"
+        pinObject.subtitle = "Best castle in Volyn"
+        self.mapView.addAnnotation(pinObject)
+        
         
     }
 
@@ -44,6 +56,32 @@ class ViewController: UIViewController {
     }
     
     @IBAction func locate(_ sender: Any) {
+        
+        
+    // reseive permission to get location (best)
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+        
+        mapView.showsUserLocation = true
+    }
+    
+    
+    // gerring location of a user
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let userLocation: CLLocation = locations[0] as CLLocation
+        
+        manager.stopUpdatingLocation()
+        
+        let location = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        
+         let span = MKCoordinateSpan.init(latitudeDelta: 0.01, longitudeDelta: 0.01)
+     
+        let region = MKCoordinateRegion(center: location, span: span)
+        
+        mapView.setRegion(region, animated: true)
         
     }
     
